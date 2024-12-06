@@ -153,7 +153,7 @@ int main() {
     char expression[MAX_LEN];
     char postfix[MAX_LEN];
     std::cout << "'+' - додавання\n'-' - віднімання\n'*' - множення\n'/' - ділення\n'^' - зведення в степінь\n'!' - знайти факторіал\n" << "Введіть математичний вираз: ";
-    std::cin.getline(expression, MAX_LEN);
+    std::cin >> expression;
 
     toPostfix(expression, postfix);
     std::cout << "Зворотна польська нотація: " << postfix << std::endl;
