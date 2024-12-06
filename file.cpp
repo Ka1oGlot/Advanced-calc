@@ -135,6 +135,10 @@ double evaluatePostfix(const char* postfix) {
         } else if (c == '/') {
             double b = stack[top--];
             double a = stack[top--];
+	    if (b == 0) {
+                std::cerr << "Помилка: на 0 ділити не можна!" << std::endl;
+                exit(EXIT_FAILURE);
+            }
             stack[++top] = a / b;
         } else if (c == '^') {
             double b = stack[top--];
@@ -142,6 +146,10 @@ double evaluatePostfix(const char* postfix) {
             stack[++top] = power(a, b);
         } else if (c == '!') {
             double a = stack[top--];
+	    if (a < 0) {
+		    std::cerr << "Помилка: факторіал не визначений для від'ємних чисел!" << std::endl;
+		    exit(EXIT_FAILURE);
+	    }
             stack[++top] = factorial(a);
         }
     }
