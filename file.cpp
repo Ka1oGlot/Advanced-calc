@@ -82,7 +82,7 @@ void toPostfix(const char* expression, char* output) {
                 output[j++] = ' ';
             }
             operators.pop();
-        } else if (c == '+'  c == '-'  c == '*'  c == '/'  c == '^' || c == '!') {
+        } else if (c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '!') {
             while (!operators.isEmpty() && precedence(operators.peek()) >= precedence(c)) {
                 output[j++] = operators.pop();
                 output[j++] = ' ';
